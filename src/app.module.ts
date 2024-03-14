@@ -5,6 +5,7 @@ import { BooksModule } from './books/books.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { configService } from 'config/config.service';
 import { WinstonModule } from 'nest-winston'; 
+import { HealthModule } from './health/health.module';
 import * as winston from 'winston';
 import * as path from 'path';
 
@@ -41,7 +42,7 @@ import * as path from 'path';
         }),
         new winston.transports.Console({ level: 'debug' }),
       ],
-    }),
+    }), HealthModule,
   ],
   
   controllers: [AppController],
